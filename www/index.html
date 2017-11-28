@@ -54,8 +54,8 @@
                 <div class="form-group">
                     <input id="nick" class="form-control save" data-box-id="0" placeholder="Nick" maxlength="15" />
                     <select id="gamemode" class="form-control" onchange="setserver($(this).val());" required>
-                        <option selected disabled>Gamemode:</option>
-                        <option value="127.0.0.1:443">FFA</option>
+                        <option disabled>Gamemode:</option>
+                        <option selected value="127.0.0.1:443">As specified</option>
                     </select>
                     <br clear="both" />
                 </div>
@@ -126,5 +126,8 @@
     <div style="font-family:'Ubuntu'">&nbsp;</div>
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script>
+        setserver("127.0.0.1:443");
+    </script>
 </body>
 </html>
