@@ -18,7 +18,7 @@ function test_function(){
 
 	$images = glob('./skins/*.{png}', GLOB_BRACE);
 	foreach ($images as &$path) {
-		$path = basename($path,".png");
+		$path = mb_basename($path,".png");
 	}
 
 	unset($path);
@@ -27,4 +27,19 @@ function test_function(){
 	echo json_encode($return);
 }
 
+function mb_basename($file, $ext) 
+{ 
+    $n = end(explode('/',$file)); 
+    if (is_null($ext)) return $n;
+    if (endsWith($n, $ext)) return substr($n, 0, -strlen($ext));
+    return $n;
+}
+
+function endsWith($haystack, $needle)
+{
+    $length = strlen($needle);
+
+    return $length === 0 || 
+    (substr($haystack, -$length) === $needle);
+}
 ?>
